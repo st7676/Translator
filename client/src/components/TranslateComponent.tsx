@@ -20,17 +20,29 @@ const TranslateComponent: React.FC = () => {
         }
     };
 
-    return (
-        <div>
+return (
+    <div className="page">
+        <div className="card">
+
             <textarea
+                className="input"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Enter text to translate"
             />
-            <button onClick={handleTranslate}>Translate</button>
-            {translatedText && <div>Translated Text: {translatedText}</div>}
+
+            <button className="button" onClick={handleTranslate}>
+                Translate
+            </button>
+
+            {translatedText && (
+                <div className="result">
+                    {translatedText}
+                </div>
+            )}
         </div>
-    );
+    </div>
+);
 };
 
 export default TranslateComponent;
