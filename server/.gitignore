@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+models/translate-en_he-1_5.argosmodel
+node_modules
+dist

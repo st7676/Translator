@@ -1,0 +1,11 @@
+# shared
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+.vscode
+.idea
+
+# logs
+*.log
