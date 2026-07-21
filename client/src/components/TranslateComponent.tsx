@@ -7,42 +7,42 @@ const TranslateComponent: React.FC = () => {
 
     const handleTranslate = async () => {
         try {
-            const response = await axios.post('http://localhost:5001/translate', {   
-                from: 'en',
-                to: 'he',
+            const response = await axios.post('/api/translate', {
                 text: text,
             });
-            console.log(response.data.translatedText);
-            setTranslatedText(response.data.translatedText);
+            // עדכון לשם המפתח המדויק שמוחזר מהשרת
+            console.log(response.data.translated_text);
+            setTranslatedText(response.data.translated_text);
 
         } catch (error) {
             console.error('Error translating text:', error);
         }
     };
 
-return (
-    <div className="page">
-        <div className="card">
+    return (
+        <div className="page">
+            <div className="card">
 
-            <textarea
-                className="input"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                placeholder="Enter text to translate"
-            />
+                <textarea
+                    className="input"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    placeholder="Enter text to translate"
+                />
 
-            <button className="button" onClick={handleTranslate}>
-                Translate
-            </button>
+                <button className="button" onClick={handleTranslate}>
+                    Translate
+                </button>
 
-            {translatedText && (
-                <div className="result">
-                    {translatedText}
-                </div>
-            )}
+                {translatedText && (
+                    <div className="result">
+                        <h3>Translation:</h3>
+                        <p>{translatedText}</p>
+                    </div>
+                )}
+            </div>
         </div>
-    </div>
-);
+    );
 };
 
 export default TranslateComponent;
